@@ -109,7 +109,7 @@ public class UserDao {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, user.getUserName());
             pstmt.setString(2, user.getEmail());
-            pstmt.setString(3, user.getPassword());
+            pstmt.setString(3, hashPassword(user.getPassword()));
             pstmt.setInt(4, id);
             pstmt.executeUpdate();
             System.out.println("Udało się zaktualizować użytkownika. Jego nowe dane :");
